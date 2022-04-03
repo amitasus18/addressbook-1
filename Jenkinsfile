@@ -24,7 +24,7 @@ pipeline {
                   sshagent(['TEST_SERVER']) {
                    echo "TESTING THE CODE"
                    sh "mvn test"
-                  }
+                  
 
               }
             }
@@ -35,6 +35,7 @@ pipeline {
             }
             }
             }
+    }
              stage('Package') {
              sshagent(['BUILD_SERVER']) {
             steps {
