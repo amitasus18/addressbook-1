@@ -24,6 +24,7 @@ pipeline {
                   sshagent(['TEST_SERVER']) {
                    echo "TESTING THE CODE"
                    sh "mvn test"
+                  }
 
               }
             }
