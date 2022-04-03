@@ -33,6 +33,7 @@ pipeline {
                 }
             }
             }
+            }
              stage('Package') {
              sshagent(['BUILD_SERVER']) {
             steps {
@@ -44,5 +45,5 @@ pipeline {
             }
             }
         }
-  }           
+    }         
 }
