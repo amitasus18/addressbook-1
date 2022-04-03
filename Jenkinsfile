@@ -1,5 +1,5 @@
 pipeline {
-   agent any
+   agent none
    tools{
          jdk 'JAVA_HOME'
          maven 'mymaven'
@@ -18,24 +18,21 @@ pipeline {
             }
             }
             stage('UnitTest') {
-              agent any
+              agent {label 'linux_slave'}
             steps {
               script{
                   sshagent(['TEST_SERVER']) {
                    echo "TESTING THE CODE"
                    sh "mvn test"
-                  
 
               }
             }
             post{
                 always{
                     junit 'target/surefire-reports/*.xml'
-                
-            
+                }
             }
             }
-    }
              stage('Package') {
              sshagent(['BUILD_SERVER']) {
             steps {
@@ -47,6 +44,5 @@ pipeline {
             }
             }
         }
-            
-}
+    
 }
