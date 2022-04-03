@@ -5,7 +5,7 @@ pipeline {
          maven 'mymaven'
    }
    environment{
-       BUILD_SERVER_IP='ec2-user@172.31.43.56'
+       BUILD_SERVER_IP='ec2-user@3.131.100.106'
    }
     stages {
         stage('Compile') {
@@ -18,7 +18,7 @@ pipeline {
             }
             }
             stage('UnitTest') {
-              agent {label 'linux_slave'}
+              agent any
             steps {
               script{
                   sshagent(['TEST_SERVER']) {
