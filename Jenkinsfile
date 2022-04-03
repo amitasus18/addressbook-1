@@ -1,11 +1,11 @@
 pipeline {
-   agent none
+   agent any
    tools{
-         jdk 'Myjava'
+         jdk 'JAVA_HOME'
          maven 'mymaven'
    }
    environment{
-       BUILD_SERVER_IP='ec2-user@3.131.100.106'
+       BUILD_SERVER_IP='ec2-user@18.118.6.47'
    }
     stages {
         stage('Compile') {
