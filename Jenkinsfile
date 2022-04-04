@@ -35,7 +35,7 @@ pipeline {
                     }
                               }
              stage('Package') {
-             sshagent(['BUILD_SERVER']) {
+             sshagent(['BUILD_SERVER_IP']) {
             steps {
               script{
                   echo "Packaging the apps"
